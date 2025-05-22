@@ -10,7 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-//    let loginView = LoginView()
     let logoImageView = UIImageView()
     let appNameLabel = UILabel()
     let appDescriptionLabel = UILabel()
@@ -26,8 +25,6 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func style() {
-        // LoginView
-//        loginView.translatesAutoresizingMaskIntoConstraints = false
         
         // logoImageView
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +35,6 @@ extension LoginViewController {
         // AppNameLabel
         appNameLabel.translatesAutoresizingMaskIntoConstraints = false
         appNameLabel.font = UIFont(name: "Outfit-Medium", size: 38)
-//        appNameLabel.font = .systemFont(ofSize: 42, weight: .bold)
         appNameLabel.textColor = .white
         appNameLabel.textAlignment = .center
         appNameLabel.text = "AU Journey"
@@ -46,7 +42,6 @@ extension LoginViewController {
         // AppDescriptionLabel
         appDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         appDescriptionLabel.font = UIFont(name: "Outfit-Regular", size: 18)
-//        appDescriptionLabel.font = .systemFont(ofSize: 17, weight: .regular)
         appDescriptionLabel.textColor = .white
         appDescriptionLabel.textAlignment = .center
         appDescriptionLabel.numberOfLines = 0
@@ -70,21 +65,12 @@ extension LoginViewController {
     }
     
     private func layout() {
-//        view.addSubview(loginView)
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
         view.addSubview(logoImageView)
         view.addSubview(appNameLabel)
         view.addSubview(appDescriptionLabel)
         view.addSubview(signInButton)
-        
-        // LoginView
-//        NSLayoutConstraint.activate([
-//            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-//            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
-//            ])
-        
         
         // logoImageView
         NSLayoutConstraint.activate([
@@ -93,7 +79,6 @@ extension LoginViewController {
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
             logoImageView.heightAnchor.constraint(equalToConstant: 200)
         ])
-
         
         // appNameLabel
         NSLayoutConstraint.activate([
