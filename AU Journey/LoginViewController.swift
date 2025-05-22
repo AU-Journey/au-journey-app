@@ -5,14 +5,17 @@
 //  Created by Beau on 19/5/2568 BE.
 //
 
+import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
     
 //    let loginView = LoginView()
-    let AppNameLabel = UILabel()
-    let AppDescriptionLabel = UILabel()
+    let logoImageView = UIImageView()
+    let appNameLabel = UILabel()
+    let appDescriptionLabel = UILabel()
     let signInButton = UIButton(type: .system)
+    let backgroundImageView = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,36 +29,54 @@ extension LoginViewController {
         // LoginView
 //        loginView.translatesAutoresizingMaskIntoConstraints = false
         
+        // logoImageView
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(named: "JourneyLogo")
+        logoImageView.layer.cornerRadius = 20
+        logoImageView.clipsToBounds = true
+        
         // AppNameLabel
-        AppNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        AppNameLabel.font = .systemFont(ofSize: 32, weight: .bold)
-        AppNameLabel.textColor = .label
-        AppNameLabel.textAlignment = .center
-        AppNameLabel.text = "AU Journey"
+        appNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        appNameLabel.font = UIFont(name: "Outfit-Medium", size: 38)
+//        appNameLabel.font = .systemFont(ofSize: 42, weight: .bold)
+        appNameLabel.textColor = .white
+        appNameLabel.textAlignment = .center
+        appNameLabel.text = "AU Journey"
         
         // AppDescriptionLabel
-        AppDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        AppDescriptionLabel.font = .systemFont(ofSize: 17, weight: .regular)
-        AppDescriptionLabel.textColor = .secondaryLabel
-        AppDescriptionLabel.textAlignment = .center
-        AppDescriptionLabel.numberOfLines = 0
-        AppDescriptionLabel.text = "An application that will help guide your way in Assumption University, made for students and faculty members."
+        appDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        appDescriptionLabel.font = UIFont(name: "Outfit-Regular", size: 18)
+//        appDescriptionLabel.font = .systemFont(ofSize: 17, weight: .regular)
+        appDescriptionLabel.textColor = .white
+        appDescriptionLabel.textAlignment = .center
+        appDescriptionLabel.numberOfLines = 0
+        appDescriptionLabel.text = "An application that will help guide your way in Assumption University, made for students and faculty members."
         
         // SignInButton
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
-        signInButton.tintColor = .systemPink
+        signInButton.tintColor = .systemBrown
         signInButton.configuration?.imagePadding = 8
         signInButton.configuration?.buttonSize = .large
         signInButton.setTitle("Continue with Microsoft", for: [])
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+        
+        // backgroundImageView
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.image = UIImage(named: "BackgroundOpening")
+        backgroundImageView.contentMode = .scaleAspectFill
+        
+        layout()
     }
     
     private func layout() {
 //        view.addSubview(loginView)
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
+        view.addSubview(logoImageView)
+        view.addSubview(appNameLabel)
+        view.addSubview(appDescriptionLabel)
         view.addSubview(signInButton)
-        view.addSubview(AppNameLabel)
-        view.addSubview(AppDescriptionLabel)
         
         // LoginView
 //        NSLayoutConstraint.activate([
@@ -64,26 +85,45 @@ extension LoginViewController {
 //            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
 //            ])
         
-        // AppNameLabel
+        
+        // logoImageView
         NSLayoutConstraint.activate([
-            AppNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            AppNameLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: AppNameLabel.trailingAnchor, multiplier: 2)
+            logoImageView.bottomAnchor.constraint(equalTo: appNameLabel.topAnchor, constant: -50),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+
+        
+        // appNameLabel
+        NSLayoutConstraint.activate([
+            appNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 80),
+            appNameLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: appNameLabel.trailingAnchor, multiplier: 3)
             ])
         
-        // AppDescriptionLabel
+        // appDescriptionLabel
         NSLayoutConstraint.activate([
-            AppDescriptionLabel.topAnchor.constraint(equalTo: AppNameLabel.bottomAnchor, constant: 10),
-            AppDescriptionLabel.leadingAnchor.constraint(equalTo: AppNameLabel.leadingAnchor),
-            AppDescriptionLabel.trailingAnchor.constraint(equalTo: AppNameLabel.trailingAnchor)
+            appDescriptionLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 20),
+            appDescriptionLabel.leadingAnchor.constraint(equalTo: appNameLabel.leadingAnchor),
+            appDescriptionLabel.trailingAnchor.constraint(equalTo: appNameLabel.trailingAnchor)
             ])
         
-        // SignInButton
+        // signInButton
         NSLayoutConstraint.activate([
             signInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             signInButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: signInButton.trailingAnchor, multiplier: 2)
             ])
+        
+        // backgroundImageView
+    NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    
     }
 }
 
