@@ -55,7 +55,7 @@ extension LoginViewController {
         // SignInButton
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
-        signInButton.tintColor = .systemBrown
+        signInButton.tintColor = .black
         signInButton.configuration?.imagePadding = 8
         signInButton.configuration?.buttonSize = .large
         signInButton.setTitle("Continue with Microsoft", for: [])
