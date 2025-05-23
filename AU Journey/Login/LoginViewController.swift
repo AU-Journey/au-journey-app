@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+        AuthManager.shared.setup()
     }
 }
 
@@ -114,6 +115,24 @@ extension LoginViewController {
 
 extension LoginViewController {
     @objc func signInTapped(sender: UIButton) {
-        
+        AuthManager.shared.signIn(presentingViewController: self) { token in
+            if let token = token {
+                print(" Signed in with token: \(token)")
+                
+                //  Transition to main app screen
+                DispatchQueue.main.async {
+                    let homeVC = MapViewController() // Replace with your actual main screen
+                    homeVC.modalPresentationStyle = .fullScreen
+                    self.present(homeVC, animated: true)
+                }
+
+            } else {
+                print(" Sign-in failed.")
+                let alert = UIAlertController(title: "Login Failed", message: "Please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            }
+        }
     }
 }
+
