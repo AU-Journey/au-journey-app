@@ -121,7 +121,7 @@ extension LoginViewController {
                 
                 //  Transition to main app screen
                 DispatchQueue.main.async {
-                    let homeVC = MapViewController() // Replace with your actual main screen
+                    let homeVC = TabBarController()
                     homeVC.modalPresentationStyle = .fullScreen
                     self.present(homeVC, animated: true)
                 }

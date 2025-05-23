@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2771212DE0633500E12F81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B2771202DE0633500E12F81 /* SnapKit */; };
 		E8AE06D72DE049A700E55128 /* MSAL in Frameworks */ = {isa = PBXBuildFile; productRef = E8AE06D62DE049A700E55128 /* MSAL */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8AE06D72DE049A700E55128 /* MSAL in Frameworks */,
+				8B2771212DE0633500E12F81 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = "AU Journey";
 			packageProductDependencies = (
 				E8AE06D62DE049A700E55128 /* MSAL */,
+				8B2771202DE0633500E12F81 /* SnapKit */,
 			);
 			productName = "AU Journey";
 			productReference = 8B494B342DDB1A1900B7FDE2 /* AU Journey.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				E8AE06D52DE049A700E55128 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */,
+				8B27711F2DE0633500E12F81 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8B494B352DDB1A1900B7FDE2 /* Products */;
@@ -354,6 +358,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B27711F2DE0633500E12F81 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		E8AE06D52DE049A700E55128 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AzureAD/microsoft-authentication-library-for-objc";
@@ -365,6 +377,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8B2771202DE0633500E12F81 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B27711F2DE0633500E12F81 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		E8AE06D62DE049A700E55128 /* MSAL */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E8AE06D52DE049A700E55128 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */;
