@@ -11,8 +11,18 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        style()
+        layout()
         
     }
+}
 
+extension ProfileViewController {
+    func style() {
+        
+    }
+    
+    func layout() {
+        
+    }
 }
